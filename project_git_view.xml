@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	 <record id="view_task_git_form" model="ir.ui.view">
+            <field name="name">project.task.git.form</field>
+            <field name="model">project.task</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+            	<xpath expr="/form/group//field[@name='progress']" position="after">
+            		<field name="repo_id" colspan="3"/>
+            		<button name="read_repo_revisions" string="Update task from repo" colspan="3" type="object" icon="gtk-execute"/>
+            	</xpath>
+            </field>
+         </record>
+
+        <record id="view_project_repo_form" model="ir.ui.view">
+       		<field name="name">project.task.git.repo.form"</field>
+       		<field name="model">project.task.git.repo</field>
+       		<field name="type">form</field>
+       		<field name="arch" type="xml">
+       			<form string="Git Repository">
+       				<field name="name" colspan="4"/>
+       				<field name="path" colspan="4"/>
+       				<field name="actual_revision" colspan="4" readonly="1"/>
+       			</form>
+       		</field>
+        </record> 
+    </data>
+</openerp>
